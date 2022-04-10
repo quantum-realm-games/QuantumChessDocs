@@ -1,0 +1,14 @@
+\documentclass[preview, border={5mm 4mm 4mm 4mm}]{standalone}
+\usepackage{amsmath, braket, tikz, qcircuit}
+
+\begin{document}
+
+\Qcircuit @C=1em @R=1em{
+    & \lstick{\ket{s}} & \multigate{1}{U_{pc}} & \qw 
+    & &
+    & \lstick{\ket{s}} & \targ &\qw & \qw \\
+& \lstick{\ket{t}} & \ghost{U_{pc}} & \qw 
+    & \push{\rule{0em}{0em}=\rule{0.5em}{0em}} &
+    & \lstick{\ket{t}} &\ctrl{-1} & \gate{R_\pi} & \qw
+}
+\end{document}

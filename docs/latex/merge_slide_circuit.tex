@@ -1,0 +1,33 @@
+\documentclass[preview, border={5mm 4mm 4mm 3mm}]{standalone}
+\usepackage{amsmath, braket, tikz, qcircuit}
+
+\begin{document}
+
+\Qcircuit @C=1em @R=1em{
+& \lstick{\ket{p_2}} & \multigate{4}{U_{ms}} & \qw 
+    & &
+    & \lstick{\ket{p_2}} & \multigate{4}{U_{ss}^\dagger} & \qw 
+    & &
+    & \lstick{\ket{p_2}} & \ctrlo{1} & \ctrlo{1} & \ctrl{1} &\qw \\
+& \lstick{\ket{p_1}} & \ghost{U_{ms}} & \qw 
+    & &
+    & \lstick{\ket{p_1}} & \ghost{U_{ss}^\dagger} & \qw 
+    & &
+    & \lstick{\ket{p_1}} & \ctrlo{1} & \ctrl{1} & \ctrlo{2} &\qw \\
+& \lstick{\ket{s_2}} & \ghost{U_{ms}} & \qw 
+    & \push{\rule{0em}{0em}=\rule{0.5em}{0em}} &
+    & \lstick{\ket{s_2}} & \ghost{U_{ss}^\dagger} & \qw 
+    & \push{\rule{0em}{0em}=\rule{0.5em}{0em}} &
+    & \lstick{\ket{s_2}} & \multigate{2}{U_{sj}^\dagger} &\multigate{1}{U_{jump}^\dagger} &\qw &\qw \\
+& \lstick{\ket{t}} & \ghost{U_{ms}} & \qw 
+    & &
+    & \lstick{\ket{t}} & \ghost{U_{ss}^\dagger} & \qw 
+    & &
+    & \lstick{\ket{t}} & \ghost{U_{sj}^\dagger} & \ghost{U_{jump}^\dagger} &\multigate{1}{U_{jump}^\dagger} &\qw \\
+& \lstick{\ket{s_1}} & \ghost{U_{ms}} & \qw
+    & &
+    & \lstick{\ket{s_1}} & \ghost{U_{ss}^\dagger} & \qw
+    & &
+    & \lstick{\ket{s_1}} & \ghost{U_{sj}^\dagger} & \qw &\ghost{U_{jump}^\dagger} &\qw
+}
+\end{document}

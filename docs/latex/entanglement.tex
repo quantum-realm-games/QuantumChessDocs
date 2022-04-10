@@ -1,0 +1,15 @@
+\documentclass[preview, border={5pt,5pt,5pt,5pt}]{standalone}
+\usepackage{amsmath, braket, tikz}
+
+\newcommand{\ketbra}[1]{\ket{#1}\bra{#1}}
+\newcommand{\ev}[1]{\left\langle #1 \right\rangle}
+
+\begin{document}
+$
+\begin{aligned}
+    \vec{o} &=\{\ev{O_1},\ev{O_2},\ev{O_3},\ev{O_4}\} \\
+    \vec{s} &=\{\ev{O_5},\ev{O_6},\ev{O_7},\ev{O_8}\} \\
+    same &= \frac{ \vec{s} \cdot \vec{s}}{ \vec{o} \cdot \vec{o} +  \vec{s} \cdot \vec{s}} & opposite &= \frac{ \vec{o} \cdot \vec{o}}{ \vec{o} \cdot \vec{o} +  \vec{s} \cdot \vec{s}}
+\end{aligned}
+$
+\end{document}

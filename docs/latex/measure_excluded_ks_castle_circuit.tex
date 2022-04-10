@@ -1,0 +1,15 @@
+\documentclass[preview, border={5mm 4mm 4mm 4mm}]{standalone}
+\usepackage{amsmath, braket, tikz, qcircuit}
+
+\begin{document}
+
+\Qcircuit @C=1em @R=1em{
+    & \lstick{\ket{0}} & \targ & \measure{\mbox{m}} & \control \cw \cwx[1] &  \\
+    & \lstick{\ket{e}} & \qw & \qw &\multigate{3}{U_{ks}} &\qw \\
+    & \lstick{\ket{g}} & \ctrlo{-2} & \qw &\ghost{U_{ks}} &\qw \\
+    & \lstick{\ket{h}} & \qw &\qw &\ghost{U_{ks}} &\qw \\
+    & \lstick{\ket{f}} & \ctrlo{-2} &\qw & \ghost{U_{ks}} &\qw \\
+}
+
+\end{document}
+

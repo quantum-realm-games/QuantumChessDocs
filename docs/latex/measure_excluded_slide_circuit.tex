@@ -1,0 +1,12 @@
+\documentclass[preview, border={5mm 4mm 4mm 4mm}]{standalone}
+\usepackage{amsmath, braket, tikz, qcircuit}
+
+\begin{document}
+
+\Qcircuit @C=1em @R=1em{
+& \lstick{\ket{p}} & \qw        & \qw & \qw & \multigate{2}{U_{slide}} & \qw \\
+& \lstick{\ket{s}} & \qw  & \qw & \qw & \ghost{U_{slide}} & \qw \\
+& \lstick{\ket{t}} & \ctrlo{1}        & \qw & \qw & \ghost{U_{slide}} & \qw \\
+& \lstick{\ket{0}} & \targ      & \measure{\mbox{m}} & \cw & \control \cw \cwx[-1] &  & \\
+}
+\end{document}

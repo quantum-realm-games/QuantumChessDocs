@@ -1,0 +1,23 @@
+\documentclass[preview, border={5mm 4mm 4mm 3mm}]{standalone}
+\usepackage{amsmath, braket, tikz, qcircuit}
+
+\begin{document}
+
+\Qcircuit @C=1em @R=1em{
+& \lstick{\ket{p_1}} & \multigate{4}{U_{ss}} & \qw 
+    & &
+    & \lstick{\ket{p_1}} & \ctrlo{1} & \ctrlo{1} & \ctrl{1} &\qw \\
+& \lstick{\ket{p_2}} & \ghost{U_{ss}} & \qw 
+    & &
+    & \lstick{\ket{p_2}} & \ctrlo{1} & \ctrl{1} & \ctrlo{2} &\qw \\
+& \lstick{\ket{t_1}} & \ghost{U_{ss}} & \qw 
+    & \push{\rule{0em}{0em}=\rule{0.5em}{0em}} &
+    & \lstick{\ket{t_1}} & \multigate{2}{U_{sj}} &\multigate{1}{U_{jump}} &\qw &\qw \\
+& \lstick{\ket{s}} & \ghost{U_{ss}} & \qw 
+    & &
+    & \lstick{\ket{s}} & \ghost{U_{sj}} & \ghost{U_{jump}} &\multigate{1}{U_{jump}} &\qw \\
+& \lstick{\ket{t_2}} & \ghost{U_{ss}} & \qw
+    & &
+    & \lstick{\ket{t_2}} & \ghost{U_{sj}} & \qw &\ghost{U_{jump}} &\qw
+}
+\end{document}

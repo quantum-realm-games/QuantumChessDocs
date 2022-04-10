@@ -1,0 +1,13 @@
+\documentclass[preview, border={5mm 4mm 4mm 4mm}]{standalone}
+\usepackage{amsmath, braket, tikz, qcircuit}
+
+\begin{document}
+
+\Qcircuit @C=1em @R=1em{
+    & \lstick{\ket{s}} & \qw & \multigate{1}{U_{iswap}} & \qw &\qw \\
+    & \lstick{\ket{t}} & \ctrl{1} & \ghost{U_{iswap}} & \ctrl{1} &\qw \\
+    & \lstick{\ket{0}} & \targ & \ctrlo{-1} & \ctrlo{1} &\qw \\
+    & \lstick{\ket{ep}} & \qw & \ctrl{-1} &\multigate{1}{U_{iswap}} &\qw \\
+    & \lstick{\ket{0}} & \qw & \qw & \ghost{U_{iswap}} &\qw 
+}
+\end{document}

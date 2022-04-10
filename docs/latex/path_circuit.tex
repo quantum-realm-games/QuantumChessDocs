@@ -1,0 +1,12 @@
+\documentclass[preview, border={6mm 4mm 4mm 3mm}]{standalone}
+\usepackage{amsmath, braket, tikz, qcircuit}
+
+\begin{document}
+
+\Qcircuit @C=1em @R=1em{
+& \lstick{\ket{s_1}} & \ctrlo{1} & \qw& \qw& \\
+& \lstick{\ket{s_2}} & \ctrlo{1} & \qw& \qw& \\
+& \lstick{\ket{s_3}} & \ctrlo{1} & \qw& \qw& \\
+& \lstick{\ket{0}}   & \targ & \gate{X} & \qw& \ket{p}
+}
+\end{document}

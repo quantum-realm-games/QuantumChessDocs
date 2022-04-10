@@ -1,0 +1,14 @@
+\documentclass[preview, border={5mm 4mm 4mm 0mm}]{standalone}
+\usepackage{amsmath, braket, tikz, qcircuit}
+
+\begin{document}
+
+\Qcircuit @C=1em @R=1em{
+& \lstick{\ket{s}} & \multigate{1}{U_{jump}} & \qw 
+    & \push{\rule{0em}{3.5em}=\rule{0.5em}{0em}} &
+    & \lstick{\ket{s}} & \multigate{1}{U_{iswap}} &\qw \\
+& \lstick{\ket{t}} & \ghost{U_{jump}} & \qw
+    & &
+    & \lstick{\ket{t}} & \ghost{U_{iswap}} &\qw
+}
+\end{document}

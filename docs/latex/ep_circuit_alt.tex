@@ -1,0 +1,12 @@
+\documentclass[preview, border={5mm 4mm 4mm 4mm}]{standalone}
+\usepackage{amsmath, braket, tikz, qcircuit}
+
+\begin{document}
+
+\Qcircuit @C=1em @R=1em{
+    & \lstick{\ket{s}} & \ctrl{1} & \qw & \qw &\targ &\qw \\
+    & \lstick{\ket{t}} & \ctrlo{1} & \qw & \targ &\qw &\qw \\
+    & \lstick{\ket{ep}} & \ctrl{1} & \targ & \qw &\qw &\qw \\
+    & \lstick{\ket{0}} & \targ & \ctrl{-1} & \ctrl{-2} & \ctrl{-3} &\qw
+}
+\end{document}

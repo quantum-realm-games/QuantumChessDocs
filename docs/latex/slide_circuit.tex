@@ -1,0 +1,17 @@
+\documentclass[preview, border={5mm 4mm 4mm 3mm}]{standalone}
+\usepackage{amsmath, braket, tikz, qcircuit}
+
+\begin{document}
+
+\Qcircuit @C=1em @R=1em{
+& \lstick{\ket{p}} & \multigate{2}{U_{slide}} & \qw 
+    & &
+    & \lstick{\ket{p}} & \ctrlo{1} &\qw \\
+& \lstick{\ket{s}} & \ghost{U_{slide}} & \qw 
+    & \push{\rule{0em}{0em}=\rule{0.5em}{0em}} &
+    & \lstick{\ket{s}} & \multigate{1}{U_{jump}} &\qw \\
+& \lstick{\ket{t}} & \ghost{U_{slide}} & \qw
+    & &
+    & \lstick{\ket{t}} & \ghost{U_{jump}} &\qw
+}
+\end{document}

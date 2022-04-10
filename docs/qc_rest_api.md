@@ -1,0 +1,2 @@
+# Introduction
+The Quantum Chess engine supports offloading the quantum state to an arbitrary external resource. The engine can accesses this resource through a set of REST endpoints. The classical state of the game, and enforcement of move legality, are handled within the engine. The external quantum resource must only implement the unitary evolution logic for a quantum state of 64-qubits. The following defines the REST endpoints which must be implemented.

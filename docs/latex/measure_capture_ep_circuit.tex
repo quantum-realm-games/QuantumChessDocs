@@ -1,0 +1,14 @@
+\documentclass[preview, border={5mm 4mm 4mm 4mm}]{standalone}
+\usepackage{amsmath, braket, tikz, qcircuit}
+
+\begin{document}
+
+\Qcircuit @C=1em @R=1em{
+& \lstick{\ket{0}} & \targ & \measure{\mbox{m}} & \control \cw \cwx[1] &  \\
+& \lstick{\ket{0}} & \qw & \qw & \multigate{4}{U_{cap-ep}} &\qw \\
+& \lstick{\ket{t}} & \qw & \qw & \ghost{U_{cap-ep}} &\qw \\
+& \lstick{\ket{s}} & \ctrlo{-3} & \qw & \ghost{U_{cap-ep}} &\qw \\
+& \lstick{\ket{ep}} & \qw & \qw & \ghost{U_{cap-ep}} &\qw \\
+& \lstick{\ket{0}} & \qw & \qw & \ghost{U_{cap-ep}} &\qw 
+}
+\end{document}

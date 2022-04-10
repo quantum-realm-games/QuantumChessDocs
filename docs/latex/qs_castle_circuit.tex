@@ -1,0 +1,25 @@
+\documentclass[preview, border={5mm 4mm 4mm 4mm}]{standalone}
+\usepackage{amsmath, braket, tikz, qcircuit}
+
+\begin{document}
+
+\Qcircuit @C=1em @R=1em{
+& \lstick{\ket{e}} & \multigate{4}{U_{qs}} & \qw 
+    & & &
+    & \lstick{\ket{e}} & \multigate{1}{U_{iswap}} &\qw \\
+& \lstick{\ket{c}} & \ghost{U_{qs}} & \qw 
+    & & &
+    & \lstick{\ket{c}} &\ghost{U_{iswap}} &\qw \\
+& \lstick{\ket{b}} & \ghost{U_{qs}} & \qw 
+    & \raisebox{0em}{=} & &
+    & \lstick{\ket{b}} & \ctrlo{1} \ctrlo{-1} &\qw \\
+& \lstick{\ket{a}} & \ghost{U_{qs}} & \qw 
+    & & &
+    & \lstick{\ket{a}} &\multigate{1}{U_{iswap}} &\qw \\
+& \lstick{\ket{d}} & \ghost{U_{qs}} & \qw 
+    & & &
+    & \lstick{\ket{d}} & \ghost{U_{iswap}} &\qw \\
+}
+
+\end{document}
+
