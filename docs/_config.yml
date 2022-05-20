@@ -1,1 +1,5 @@
 theme: jekyll-theme-slate
+title: Quantum Chess Documentation
+description: Official documentation for the Quantum Chess engine.
+github:
+  is_project_page: false
