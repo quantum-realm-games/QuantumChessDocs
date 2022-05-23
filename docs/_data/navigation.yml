@@ -1,7 +1,0 @@
-docs:
-  - title: Documentation
-    children:
-      - title: "Rules"
-        url: ./rules.md
-      - title: "Math"
-        url: ./math.md
