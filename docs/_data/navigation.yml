@@ -1,0 +1,5 @@
+docs:
+  - title: "Rules"
+    url: ./rules.md
+  - title: "Math"
+    url: ./math.md
