@@ -1,4 +1,4 @@
-remote_theme: just-the-docs/just-the-docs
+theme: dark
 title: Quantum Chess Documentation
 description: Official documentation for the Quantum Chess engine.
 color_scheme: dark
