@@ -5,3 +5,11 @@ color_scheme: dark
 
 ga_tracking: G-7T33Q4PTSW
 ga_tracking_anonymize_ip: true
+
+defaults::
+  - scope:
+      path: ""
+      type: docs
+    values:
+      sidebar:
+        nav: "docs"
