@@ -1,7 +1,4 @@
-remote-theme: just-the-docs/just-the-docs
+remote_theme: just-the-docs/just-the-docs
   
 title: Quantum Chess Documentation
 description: Official documentation for the Quantum Chess engine.
-
-ga_tracking: G-7T33Q4PTSW
-ga_tracking_anonymize_ip: true
