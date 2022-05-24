@@ -43,7 +43,7 @@
 8-bit integer denoting the type of move.
 
 ### ```Variant```
-8-bit integer denoting the move variant. See [Move Variants](../rules.md#move-variants)
+8-bit integer denoting the move variant. See [Move Variants](../rules.md#move-variants).
 
 ## Members
 
