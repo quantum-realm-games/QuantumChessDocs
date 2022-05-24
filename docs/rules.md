@@ -1,5 +1,6 @@
 # Introduction
 Quantum Chess is a variant of chess that gives players some new movement options, allowing them to create quantum superposition, where the pieces can exist on more than one square at the same time. This page, and associated resources, documents the official rules and implementation details for the game.
+
 <button>Hello World</button>
 
 # Quantum Pieces
