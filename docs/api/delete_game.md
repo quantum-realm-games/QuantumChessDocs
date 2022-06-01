@@ -14,6 +14,6 @@ Returns 0 if successful, otherwise some yet to be defined status code.
 ## Examples
  ```cpp
  auto game = qchess_new_game("position startpos", true, true, "");
- 
+
  auto code = qchess_delete_game(game);
  ```

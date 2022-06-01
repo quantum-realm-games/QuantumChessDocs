@@ -5,7 +5,7 @@ This document details the math underlying Quantum Chess. It provides a basic set
 The state of the game is divided into two parts, the quantum state and classical information
 
 ## Quantum State
-The quantum state is described using 64 qubits that encode the "occupancy" of each square. 
+The quantum state is described using 64 qubits that encode the "occupancy" of each square.
 <p align="center">
    <img src="./images/quantum_state.png" >
 </p>
@@ -97,7 +97,7 @@ It is the inverse of a [split jump](#split-jump), and here the qubits are ordere
 </p>
 
 # Measurement
-Measurement is used to enforce the "No Double Occupancy" rule. Measurements are designed to allow the game engine to unambiguously determine what type of piece might be occupying any given square after a move. 
+Measurement is used to enforce the "No Double Occupancy" rule. Measurements are designed to allow the game engine to unambiguously determine what type of piece might be occupying any given square after a move.
 
 All measurements in the game are two-outcome projective measurements, m<sub>0</sub> and m<sub>1</sub>. Each measurement outcome is designed with the following criteria.
 
@@ -296,7 +296,7 @@ The expectation values of the following operators, for given pairs of squares (q
 </p>
 
 ## Entanglement
-The Bell states can be separated by their "orientation" of entanglement. The Ψ states support a sense of "oppositeness", if the first square is occupied, then the second is not, and vice versa. Similarly, the Φ states support a sense of "sameness". 
+The Bell states can be separated by their "orientation" of entanglement. The Ψ states support a sense of "oppositeness", if the first square is occupied, then the second is not, and vice versa. Similarly, the Φ states support a sense of "sameness".
 
 Values for "same" and "opposite" correlation can be calculated by vectorizing the expectation values for the associated Bell operators. The magnitude of each subset of values will tell you whether the state has some preference for sameness or oppositeness. This measure includes both entanglement and classical correlation. The values can be normalized to give some ratio of sameness vs. oppositeness compared to the whole.
 
@@ -305,6 +305,6 @@ Values for "same" and "opposite" correlation can be calculated by vectorizing th
 </p>
 
 ## Phase
-Relative phase between two squares can have many interpretions. Consider the relevant information when intepreting the expectation values of the above operators. 
+Relative phase between two squares can have many interpretions. Consider the relevant information when intepreting the expectation values of the above operators.
 
 The relative phases for the "opposite" Bell states will tell the player whether a merge move will act as expected. The expectation values of O<sub>1</sub>, O<sub>2</sub>, O<sub>3</sub>, and O<sub>4</sub> can be taken directly to show the "amount" of the state that is oriented in each of the 4 "opposite" rotations.

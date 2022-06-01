@@ -16,7 +16,7 @@ typedef struct {
 ## Members
 
 ### ```pieces```
-64-character array (UTF-8) corresponding to the types of pieces occupying each of the squares. 
+64-character array (UTF-8) corresponding to the types of pieces occupying each of the squares.
 Piece characters are given in [FEN notation](https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation).
 Square indices are mapped as follows.
 <p align="center">
@@ -27,7 +27,7 @@ Square indices are mapped as follows.
 64-float array of the probability that a given square is occupied.
 
 ### ```ply```
-[Ply](https://en.wikipedia.org/wiki/Ply_(game_theory)) count for the game. 
+[Ply](https://en.wikipedia.org/wiki/Ply_(game_theory)) count for the game.
 
 ### ```fifty_count```
 Number of ply since the last attempted capture or pawn move.

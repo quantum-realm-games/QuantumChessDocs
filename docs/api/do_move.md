@@ -1,5 +1,5 @@
 # qchess_do_move
-Attempt to execute a move on a game created by the [qchess_new_game](./qchess_new_game.md) function. 
+Attempt to execute a move on a game created by the [qchess_new_game](./qchess_new_game.md) function.
 ## Syntax
 ```cpp
 int qchess_do_move(Game* game, const char* move, GameData* out_buffer, int* move_code);

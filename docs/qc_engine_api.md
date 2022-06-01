@@ -1,5 +1,5 @@
 # Quantum Chess Engine API
-This document defines a c-style API for interacting with the Quantum Chess Engine. 
+This document defines a c-style API for interacting with the Quantum Chess Engine.
 
 # Structures
 * [GameData](./api/GameData.md) : Information about the current state of a game.

@@ -80,17 +80,17 @@ The name of the option in  should not be case sensitive and can inludes spaces l
 The substrings "value" and "name" should be avoided in  and  to allow unambiguous parsing,
 for example do not use  = "draw value".
 The Quantum Chess engine supports the following options:
-* **forceturn [true/false]**  
-Optionally play the game without turn order enforced.  
+* **forceturn [true/false]**
+Optionally play the game without turn order enforced.
 Example: `setoption name forceturn value true`
-* **forcewin [true/false]**  
-Optionally play the game without win conditions enforced.  
+* **forcewin [true/false]**
+Optionally play the game without win conditions enforced.
 Example: `setoption name forcewin value false`
-* **forcemeasure [true/false]**  
-If set to true, move strings will force (post-select) measurement outcomes.  
+* **forcemeasure [true/false]**
+If set to true, move strings will force (post-select) measurement outcomes.
 Example: `setoption name forcemeasure value true`
-* **resturl "some url string"**  
-URL to be used for an external quantum resource that implements the [Quantum Chess REST API](https://github.com/quantum-realm-games/QuantumChessEngine/blob/master/docs/Quantum-Chess-REST-API). Provide the null string "" to clear a previous url.  
+* **resturl "some url string"**
+URL to be used for an external quantum resource that implements the [Quantum Chess REST API](https://github.com/quantum-realm-games/QuantumChessEngine/blob/master/docs/Quantum-Chess-REST-API). Provide the null string "" to clear a previous url.
 Example: `setoption name resturl value https://www.my-quantum-chess-implementation.example`
 
 ## register
@@ -98,11 +98,11 @@ This is the command to try to register an engine or to tell the engine that regi
 will be done later. This command should always be sent if the engine has sent "registration error" at program startup.
 
 The following tokens are allowed:
-* **later**  
+* **later**
 The user doesn't want to register the engine now.
-* **name**  
+* **name**
 The engine should be registered with the name.
-* **code**  
+* **code**
 The engine should be registered with the code.
 
 Example: `register later`
@@ -114,46 +114,46 @@ a different game. This can be a new game the engine should play or a new game it
 also the next position from a testsuite with positions only.
 As the engine's reaction to `ucinewgame` can take some time the GUI should always send `isready`
 after `ucinewgame` to wait for the engine to finish its operation.
-   
+
 ## position [fen  | startpos ] moves  ...
 Set up the classical position, described in fen string notation, on the internal board and play the moves.
 If the game was played  from the start position the string `startpos` will be sent
-Note: No "new" command is needed. However, if this position is from a different game than 
+Note: No "new" command is needed. However, if this position is from a different game than
 the last position sent to the engine, the GUI should have sent a "ucinewgame" inbetween.
 
 ## go
 Start calculating on the current position set up with the "position" command.
 There are a number of commands that can follow this command, all will be sent in the same string.
 If one of the following commands is not sent, the engine should interpret its value such that it not influence the search.
-* **searchmoves  ...**  
-Restrict search to this moves only.  
+* **searchmoves  ...**
+Restrict search to this moves only.
 Example: After `position startpos` and `go infinite searchmoves e2e4 d2d4`,
 the engine should only search the two moves e2e4 and d2d4 in the initial position.
-* **ponder**  
+* **ponder**
 Start searching in pondering mode. This means that the last move sent in the position string is the ponder move.
-The engine can do what it wants to do, but after a `ponderhit` command, it should execute the 
-suggested move to ponder on. 
-* **wtime x**  
+The engine can do what it wants to do, but after a `ponderhit` command, it should execute the
+suggested move to ponder on.
+* **wtime x**
 White has x milliseconds left on the clock
-* **btime x**  
+* **btime x**
 Black has x milliseconds left on the clock
-* **winc x**  
+* **winc x**
 White increment per move in milliseconds if x > 0
-* **binc x**  
+* **binc x**
 Black increment per move in milliseconds if x > 0
-* **movestogo x**  
-There are x moves to the next time control. 
-* **depth x**  
+* **movestogo x**
+There are x moves to the next time control.
+* **depth x**
 Search x plies only.
-* **nodes x**  
+* **nodes x**
 Search x nodes only,
-* **mate x**  
+* **mate x**
 Search for a mate in x moves
-* **movetime x**  
+* **movetime x**
 Search exactly x milliseconds
 * **infinite**
 Search until the "stop" command. Do not exit the search without being told in this mode!
-   
+
 ## stop
 Stop calculating as soon as possible. Don't forget the `bestmove` and possibly the `ponder` token when finishing the search.
 
@@ -162,7 +162,7 @@ The user has played the expected move. This will be sent if the engine was told 
 the user has played. The engine should continue searching but switch from pondering to normal search.
 
 ## calcbell x y
-Calculate the expected values for the 8-Bell operators, described [here](https://github.com/cantwellc/QuantumChessEngine/wiki/Bell-Measures), for the pair of squares x and y. 
+Calculate the expected values for the 8-Bell operators, described [here](https://github.com/cantwellc/QuantumChessEngine/wiki/Bell-Measures), for the pair of squares x and y.
 
 Example: `calcbell b1 c3` calculates the relative bell measures between squares b1 and c3.
 
@@ -171,10 +171,10 @@ Quit the program as soon as possible.
 
 # Engine to GUI
 ## id
-	* name 
+	* name
 		this must be sent after receiving the "uci" command to identify the engine,
 		e.g. "id name Shredder X.Y\n"
-	* author 
+	* author
 		this must be sent after receiving the "uci" command to identify the engine,
 		e.g. "id author Stefan MK\n"
 
@@ -210,7 +210,7 @@ Quit the program as soon as possible.
 	      TellGUI("copyprotection ok\n");
       else
          TellGUI("copyprotection error\n");
-         
+
 ## registration
 	this is needed for engines that need a username and/or a code to function with all features.
 	Analog to the "copyprotection" command the engine can send "registration checking"
@@ -228,7 +228,7 @@ Quit the program as soon as possible.
 	and tell the user somehow that the engine is not registered.
 	This way the engine knows that the GUI can deal with the registration procedure and the user
 	will be informed that the engine is not properly registered.
-	      
+
 ## info
 	the engine wants to send infos to the GUI. This should be done whenever one of the info has changed.
 	The engine can send only selected infos and multiple infos can be send with one info command,
@@ -239,47 +239,47 @@ Quit the program as soon as possible.
 	I suggest to start sending "currmove", "currmovenumber", "currline" and "refutation" only after one second
 	to avoid too much traffic.
 	Additional info:
-	* depth 
+	* depth
 		search depth in plies
-	* seldepth 
+	* seldepth
 		selective search depth in plies,
 		if the engine sends seldepth there must also a "depth" be present in the same string.
-	* time 
+	* time
 		the time searched in ms, this should be sent together with the pv.
-	* nodes 
+	* nodes
 		x nodes searched, the engine should send this info regularly
-	* pv  ... 
+	* pv  ...
 		the best line found
-	* multipv 
+	* multipv
 		this for the multi pv mode.
 		for the best move/pv add "multipv 1" in the string when you send the pv.
 		in k-best mode always send all k variants in k strings together.
 	* score
-		* cp 
+		* cp
 			the score from the engine's point of view in centipawns.
-		* mate 
+		* mate
 			mate in y moves, not plies.
 			If the engine is getting mated use negativ values for y.
 		* lowerbound
 	      the score is just a lower bound.
 		* upperbound
 		   the score is just an upper bound.
-	* currmove 
+	* currmove
 		currently searching this move
-	* currmovenumber 
+	* currmovenumber
 		currently searching move number x, for the first move x should be 1 not 0.
-	* hashfull 
+	* hashfull
 		the hash is x permill full, the engine should send this info regularly
-	* nps 
+	* nps
 		x nodes per second searched, the engine should send this info regularly
-	* tbhits 
+	* tbhits
 		x positions where found in the endgame table bases
-	* cpuload 
+	* cpuload
 		the cpu usage of the engine is x permill.
-	* string 
+	* string
 		any string str which will be displayed be the engine,
 		if there is a string command the rest of the line will be interpreted as .
-	* refutation   ... 
+	* refutation   ...
 	   move  is refuted by the line  ... , i can be any number >= 1.
 	   Example: after move d1h5 is searched, the engine can send
 	   "info refutation d1h5 g6h5"
@@ -287,7 +287,7 @@ Quit the program as soon as possible.
 	   if there is norefutation for d1h5 found, the engine should just send
 	   "info refutation d1h5"
 		The engine should only send this if the option "UCI_ShowRefutations" is set to true.
-	* currline   ... 
+	* currline   ...
 	   this is the current line the engine is calculating.  is the number of the cpu if
 	   the engine is running on more than one cpu.  = 1,2,3....
 	   if the engine is just using one cpu,  can be omitted.

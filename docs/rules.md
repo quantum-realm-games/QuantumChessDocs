@@ -5,11 +5,11 @@ Quantum Chess is a variant of chess that gives players some new movement options
 Pieces can exist in a superposition of both occupying and not occupying a given square. This superposition of occupancy is encoded in the [quantum state](./math.md#quantum-state) of the board.
 
 # Movement
-Quantum Chess moves are described by “source” squares and “target” squares. All movement is accomplished through [unitary evolution](./math.md#movement-unitaries) of the [quantum state](*./math.md#quantum-state). 
+Quantum Chess moves are described by “source” squares and “target” squares. All movement is accomplished through [unitary evolution](./math.md#movement-unitaries) of the [quantum state](*./math.md#quantum-state).
 
 For sliding moves, squares that are in superposition in the path are considered as empty when determining whether the move is legal.
 
-Moves are defined by a [move type] and a move variant. 
+Moves are defined by a [move type] and a move variant.
 
 # Move Types
 There are three types of moves that players have access to: [standard](#standard-move), [split](#split-move), and [merge](#merge-move). Pawns cannot perform split or merge moves.
@@ -26,7 +26,7 @@ All pieces can perform moves equivalent to those in standard chess. Thus, the te
 * king side castle
 * queen side castle
 
-Standard moves are designated by a single source and single target. 
+Standard moves are designated by a single source and single target.
 
 ## Split Move
 All **non-pawns** can perform a split move. The split move allows a player to create superposition. Split moves are designated by a single source square, and two different target squares that can be reached from that source by using a [standard jump](#standard-move), or a [standard slide](#standard-move). For example, a knight on b1 can split to a3 and c3.
@@ -40,17 +40,17 @@ All **non-pawns** can perform a merge move. The merge move allows a player to at
 
 The merge move **can’t be used to capture**. Legal target squares must be either empty, or occupied by the same kind of piece as that being moved.
 
-Special movement rules, like castling, are not supported when chosing split move targets. 
+Special movement rules, like castling, are not supported when chosing split move targets.
 
 
 # Move Variants
-Quantum Chess allows moves where the target square is in superposition of being occupied a unoccupied. This gives rise to scenarios that are not considered in standard chess. The concept of a move variant is introduced to help define the rules for these more exotic states. The variant of a move is determined by the state of the target(s) of a move. 
+Quantum Chess allows moves where the target square is in superposition of being occupied a unoccupied. This gives rise to scenarios that are not considered in standard chess. The concept of a move variant is introduced to help define the rules for these more exotic states. The variant of a move is determined by the state of the target(s) of a move.
 
 ## Basic Variant
-The basic variant is a move where the target square(s) is(are) unoccupied, or occupied by the same kind piece as that being moved. 
+The basic variant is a move where the target square(s) is(are) unoccupied, or occupied by the same kind piece as that being moved.
 
 ## Excluded Variant
-The excluded variant is a move where the target square(s) is(are) occupied by a piece that **can't** be captured. For example, if the target is occupied by of the same color, but different type, or if the piece being moved is a pawn stepping forward. 
+The excluded variant is a move where the target square(s) is(are) occupied by a piece that **can't** be captured. For example, if the target is occupied by of the same color, but different type, or if the piece being moved is a pawn stepping forward.
 
 ## Capture Variant
 The capture variant is a move where the target square(s) is(are) occupied by a piece that **can** be captured. This includes almost any move where the target(s) is(are) occupied by any opponent's piece, with exceptions for special capturing rules for pawns, and castling.
@@ -63,7 +63,7 @@ Pieces: Knight, King (non-castling)
 
 [Circuit](./math.md#basic-jump)
 
-Conditions: 
+Conditions:
 * The target square is unoccupied, or occupied by the same kind of piece as the source.
 
 ## Excluded Jump
@@ -71,7 +71,7 @@ Pieces: Knight, King (non-castling)
 
 [Circuit](./math.md#excluded-jump)
 
-Conditions: 
+Conditions:
 * The target square is occupied, in superposition, by a piece that is the same color, but different type, than the source.
 
 ## Capture Jump
@@ -79,7 +79,7 @@ Pieces: Knight, King (non-castling)
 
 [Circuit](./math.md#capture-jump)
 
-Conditions: 
+Conditions:
 * The target square is occupied by an opponent's piece.
 
 ## Basic Slide
@@ -87,7 +87,7 @@ Pieces: Bishop, Rook, Queen
 
 [Circuit](./math.md#basic-slide)
 
-Conditions: 
+Conditions:
 * The target square is unoccupied, or occupied by the same kind of piece as the source.
 
 ## Excluded Slide
@@ -95,7 +95,7 @@ Pieces: Bishop, Rook, Queen
 
 [Circuit](./math.md#excluded-slide)
 
-Conditions: 
+Conditions:
 * The target square is occupied, in superposition, by a piece that is the same color, but different type, than the source.
 
 ## Capture Slide
@@ -103,7 +103,7 @@ Pieces: Bishop, Rook, Queen
 
 [Circuit](./math.md#capture-slide)
 
-Conditions: 
+Conditions:
 * The target square is occupied by an opponent's piece.
 
 ## Basic Pawn Step
@@ -230,7 +230,7 @@ Conditions:
 * The target square and/or the square between the source and target (d file), is occupied by any other piece.
 
 # Measurement
-Measurement is when the game engine answers certain questions about the quantum state, such as “Is square a3 occupied”. This can cause the amount of superposition to be reduced, for the entire board, which is often referred to as collapse. Measurement outcomes are randomly chosen, based on the probabilities of the occupancies involved. 
+Measurement is when the game engine answers certain questions about the quantum state, such as “Is square a3 occupied”. This can cause the amount of superposition to be reduced, for the entire board, which is often referred to as collapse. Measurement outcomes are randomly chosen, based on the probabilities of the occupancies involved.
 
 The outcome of a measurement determines whether the move will continue. **A measurement outcome that doesn't allow a move to continue still counts as the player's turn**, because the state of the game is changed by the measurement.
 
@@ -241,7 +241,7 @@ In Quantum Chess you win by capturing the opponent’s king. This means 100% cap
 
 # Gameplay
 1. The player designates the type of move they wish to perform.
-2. The engine applies the appropriate [quantum circuit](./math.md#move-circuits) to the quantum state, and updates the classical information, to be consistent with any collapse and changes in square occupancy. 
+2. The engine applies the appropriate [quantum circuit](./math.md#move-circuits) to the quantum state, and updates the classical information, to be consistent with any collapse and changes in square occupancy.
 3. If any [gameover conditions](#gameover-conditions) are met, the game ends. Otherwise the player's turn ends, and the ply is incremented.
 
 ## Gameover Conditions
