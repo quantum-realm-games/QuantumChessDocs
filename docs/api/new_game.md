@@ -1,8 +1,8 @@
-# new_game
+# qchess_new_game
 Returns a pointer to a new Quantum Chess game
 ## Syntax
 ```cpp
-Game* new_game(char* position, bool force_turn, bool force_win, char* rest_url);
+Game* qchess_new_game(char* position, bool force_turn, bool force_win, char* rest_url);
 ```
 ## Parameters
 ### ```position```
@@ -34,9 +34,9 @@ Pointer to newly created game if successfull, otherwise nullptr.
 ## Examples
  ```cpp
  auto position = "position startpos";
- auto game = new_game(position, false, false, "");
+ auto game = qchess_new_game(position, false, false, "");
  ```
  ```cpp
  auto position = "position fen 4k3/8/8/8/8/8/8/4K3 w - - 0 1 moves e1^e2d1 e8^d8f8";
- auto game = new_game(position, false, false, "");
+ auto game = qchess_new_game(position, false, false, "");
  ```

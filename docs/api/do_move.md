@@ -1,8 +1,8 @@
-# do_move
-Attempt to execute a move on a game created by the [new_game](./new_game.md) function. 
+# qchess_do_move
+Attempt to execute a move on a game created by the [qchess_new_game](./qchess_new_game.md) function. 
 ## Syntax
 ```cpp
-long do_move(Game* game, const char* move, GameData* out_buffer, int* move_code);
+int qchess_do_move(Game* game, const char* move, GameData* out_buffer, int* move_code);
 ```
 ## Parameters
 ### ```game```
@@ -30,9 +30,9 @@ Returns 0 if move was successful (codes 1-5) , otherwise some yet to be defined 
 
 ## Examples
 ```cpp
-auto game = new_game("position startpos", false, false, "");
+auto game = qchess_new_game("position startpos", false, false, "");
 GameData data;
 int out_value;
-auto success = do_move(game, "b1^a3c3", &data, &out_value);
+auto success = qchess_do_move(game, "b1^a3c3", &data, &out_value);
 ```
 

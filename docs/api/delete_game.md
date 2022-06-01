@@ -1,8 +1,8 @@
-# delete_game
-Deletes a pointer to a Quantum Chess game created by the [new_game](./new_game.md).
+# qchess_delete_game
+Deletes a pointer to a Quantum Chess game created by the [qchess_new_game](./qchess_new_game.md).
 ## Syntax
 ```cpp
-long delete_game(Game* game);
+int qchess_delete_game(Game* game);
 ```
 ## Parameters
 ### ```game```
@@ -13,7 +13,7 @@ Returns 0 if successful, otherwise some yet to be defined status code.
 
 ## Examples
  ```cpp
- auto game = new_game("position startpos", true, true, "");
+ auto game = qchess_new_game("position startpos", true, true, "");
  
- auto code = delete_game(game);
+ auto code = qchess_delete_game(game);
  ```

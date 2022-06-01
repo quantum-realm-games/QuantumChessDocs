@@ -1,12 +1,12 @@
-# get_simulator_board_probabilities
+# qchess_get_simulator_board_probabilities
 For a simulator board, get the exact probability of each bitboard in the superposition.
 
 The number of bitboards is at least 1 and at most the number of states given by
-get_simulator_state_size().
+qchess_get_simulator_state_size().
 
 ## Syntax
 ```cpp
-long get_simulator_board_probabilities(Game* game, SampleData* out_buffer, size_t buffer_len, size_t* out_len);
+int qchess_get_simulator_board_probabilities(Game* game, SampleData* out_buffer, size_t buffer_len, size_t* out_len);
 ```
 
 ## Parameters

@@ -1,9 +1,9 @@
-# get_legal_moves
+# qchess_get_legal_moves
 Get the legal moves for a given game as an array of [Moves](./Move.md).
 
 ## Syntax
 ```cpp
-long get_legal_moves(Game* game, Move* out_buffer, size_t buffer_size, size_t* out_size);
+int qchess_get_legal_moves(Game* game, Move* out_buffer, size_t buffer_size, size_t* out_size);
 ```
 
 ## Parameters
@@ -24,7 +24,7 @@ Returns 0 if successful, or 1 if ```out_size > buffer_size```
 
 ## Example
 ```cpp
-auto game = new_game("position startpos", false, false, "");
+auto game = qchess_new_game("position startpos", false, false, "");
 
 Move moves[24];
 size_t required_size;

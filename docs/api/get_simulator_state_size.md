@@ -1,4 +1,4 @@
-# get_simulator_state_size
+# qchess_get_simulator_state_size
 Get the number of quantum states in the superposition, based on the quantum simulator.
 
 The number of states may be larger than the number of possible bitboards due to states
@@ -6,7 +6,7 @@ differing only in ancilla qubits.
 
 ## Syntax
 ```cpp
-long get_simulator_state_size(Game* game, int64_t* out_size);
+int qchess_get_simulator_state_size(Game* game, int64_t* out_size);
 ```
 
 ## Parameters
