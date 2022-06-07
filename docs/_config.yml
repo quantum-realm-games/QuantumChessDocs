@@ -1,4 +1,6 @@
-remote_theme: just-the-docs/just-the-docs
-  
+theme: slate
+markdown: kramdown
+
 title: Quantum Chess Documentation
 description: Official documentation for the Quantum Chess engine.
+
