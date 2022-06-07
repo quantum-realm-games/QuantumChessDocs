@@ -1,4 +1,4 @@
-theme: slate
+theme: jekyll-theme-slate
 markdown: kramdown
 
 title: Quantum Chess Documentation
