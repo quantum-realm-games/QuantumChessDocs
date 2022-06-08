@@ -1,5 +1,4 @@
-theme: jekyll-theme-slate
-markdown: kramdown
+remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 
 title: Quantum Chess Documentation
 description: Official documentation for the Quantum Chess engine.
