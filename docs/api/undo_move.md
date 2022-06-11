@@ -1,5 +1,5 @@
 # qchess_undo_move
-Undo the last move that was successfully executed for a game created by [qchess_new_game](./qchess_new_game.md)
+Undo the last move that was successfully executed for a game created by [qchess_new_game](./new_game.md)
 ## Syntax
 ```cpp
 int qchess_undo_move(Game* game, GameData* out_data);

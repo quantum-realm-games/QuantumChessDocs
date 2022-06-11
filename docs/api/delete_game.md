@@ -1,5 +1,5 @@
 # qchess_delete_game
-Deletes a pointer to a Quantum Chess game created by the [qchess_new_game](./qchess_new_game.md).
+Deletes a pointer to a Quantum Chess game created by the [qchess_new_game](./new_game.md).
 ## Syntax
 ```cpp
 int qchess_delete_game(Game* game);
