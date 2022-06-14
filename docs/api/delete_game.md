@@ -2,10 +2,10 @@
 Deletes a pointer to a Quantum Chess game created by the [qchess_new_game](./new_game.md).
 ## Syntax
 ```cpp
-int qchess_delete_game(Game* game);
+int qchess_delete_game(qchess_Game* game);
 ```
 ## Parameters
-### ```game```
+### ```game``` (optional)
 Pointer to the game to be deleted.
 
 ## Return value

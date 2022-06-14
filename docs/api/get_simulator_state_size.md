@@ -6,7 +6,7 @@ differing only in ancilla qubits.
 
 ## Syntax
 ```cpp
-int qchess_get_simulator_state_size(Game* game, int64_t* out_size);
+int qchess_get_simulator_state_size(qchess_Game* game, int64_t* out_size);
 ```
 
 ## Parameters

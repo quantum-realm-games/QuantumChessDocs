@@ -6,7 +6,7 @@ qchess_get_simulator_state_size().
 
 ## Syntax
 ```cpp
-int qchess_get_simulator_board_probabilities(Game* game, SampleData* out_buffer, size_t buffer_len, size_t* out_len);
+int qchess_get_simulator_board_probabilities(qchess_Game* game, qchess_SampleData* out_buffer, size_t buffer_len, size_t* out_len);
 ```
 
 ## Parameters

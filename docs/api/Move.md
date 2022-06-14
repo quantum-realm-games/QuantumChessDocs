@@ -1,4 +1,4 @@
-# Move struct
+# qchess_Move struct
 
 ## Syntax
 ```
@@ -7,7 +7,6 @@
 
 		enum class Type : std::uint8_t {
 			NULL_TYPE = 0,
-			UNSPECIFIED_STANDARD = 1,
 			JUMP = 2,
 			SLIDE = 3,
 			SPLIT_JUMP = 4,
@@ -27,6 +26,7 @@
 			CAPTURE
 		};
 
+		uint8_t _reserved;
 		Square square1 = Square::NONE;
 		Square square2 = Square::NONE;
 		Square square3 = Square::NONE;

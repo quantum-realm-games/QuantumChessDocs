@@ -10,7 +10,7 @@ typedef struct {
         int     fifty_count;
         int     castle_flags;
         int     ep_square;
-    } GameData;
+    } qchess_GameData;
 ```
 
 ## Members
