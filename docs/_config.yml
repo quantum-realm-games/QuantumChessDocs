@@ -1,4 +1,5 @@
 #remote_theme: "mmistakes/minimal-mistakes@4.24.0"
+markdown: kramdown
 remote_theme: "mmistakes/minimal-mistakes@0f06cb82259e9e5f234a77173f2ea8936d8686b2" #TOC scrollbar
 minimal_mistakes_skin: "dirt"
 

@@ -7,7 +7,9 @@ The state of the game is divided into two parts, the quantum state and classical
 ## Quantum State
 The quantum state is described using 64 qubits that encode the "occupancy" of each square.
 
-![quantum state](/images/quantum_state.png){: .align-center}
+$$\lvert \psi\rangle = \bigotimes_{s,j} \lvert s_j\rangle$$
+
+$$s\in \{a-h\}, j\in \{1-8\}$$
 
 ## Classical Information
 A classical register is mapped on top of the quantum "occupancy" state, to denote what kind of piece may be in a square.
