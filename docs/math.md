@@ -17,10 +17,23 @@ A classical register is mapped on top of the quantum "occupancy" state, to denot
 # Movement Unitaries
 All movement is accomplished by applying a specific unitary to the quantum state, and then updating the classical information to reflect the new possible piece locations. The movement unitaries in Quantum Chess are built around the iswap and square root of the iswap.
 
-<figure class="half">
-   <a href="/images/iswap.png"><img src="/images/iswap.png"></a>
-   <a href="/images/root_iswap.png"><img src="/images/root_iswap.png"></a>
-</figure>
+$$
+U_{iswap} =
+\begin{pmatrix}
+    1 & 0 & 0 & 0 \\
+    0 & 0 & i & 0 \\
+    0 & i & 0 & 0 \\
+    0 & 0 & 0 & 1
+\end{pmatrix}
+
+U_{\sqrt{iswap}} =
+\begin{pmatrix}
+    1 & 0 & 0 & 0 \\
+    0 & \frac{1}{\sqrt{2}} & \frac{i}{\sqrt{2}} & 0 \\
+    0 & \frac{i}{\sqrt{2}} & \frac{1}{\sqrt{2}} & 0 \\
+    0 & 0 & 0 & 1
+\end{pmatrix}
+$$
 
 The exact matrix form of each movement unitary will depend on the qubit ordering on which it acts. Movement unitaries are defined as acting on sources, targets, and path qubits:
 * **source** refers to a square you're moving from
