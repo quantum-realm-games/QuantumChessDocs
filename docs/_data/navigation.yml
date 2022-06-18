@@ -2,8 +2,8 @@ docs:
   - title: "Overview"
     url: /
   - title: "Rules"
-    url: /rules/
+    url: /rules
   - title: "Math"
-    url: /math/
+    url: /math
   - title: "Algebraic Notation"
-    url: /qc_algebraic_notation/
+    url: /qc_algebraic_notation
