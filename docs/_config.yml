@@ -20,6 +20,7 @@ defaults:
     scope:
       path: ""
     values:
+      usemathjax: true
       toc: true
       toc_sticky: true
       layout: single
