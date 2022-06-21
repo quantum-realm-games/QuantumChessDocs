@@ -125,7 +125,7 @@ The movement unitaries and measurement criteria can be combined into quantum com
 This circuit can be used to initialize such a [path control qubit](#movement-unitaries) for a path with 3 squares, and is generalizable to any number of squares.
 
 <p align="center">
-   <img src="/images/path_circuit.png">
+   <img src="./images/path_circuit.png">
 </p>
 
 The path will be considered unoccupied, p = 0, only if *all* squares in the path are unoccupied.
@@ -135,47 +135,47 @@ The path will be considered unoccupied, p = 0, only if *all* squares in the path
 The basic jump is just a simple iswap between source and target.
 
 <p align="center">
-   <img src="/images/jump_circuit.png">
+   <img src="./images/jump_circuit.png">
 </p>
 
 ## Excluded Jump
 The excluded jump requires measuring to determine the occupancy of the target. The [basic jump](#basic-jump) is then applied if the outcome is m<sub>1</sub>, meaning the target is unoccupied. Otherwise no unitary evolution occurs.
 
 <p align="center">
-   <img src="/images/measure_excluded_jump_circuit.png">
+   <img src="./images/measure_excluded_jump_circuit.png">
 </p>
 
 ## Capture Jump
 An ancilla qubit must be added to the quantum state in order to perform capture in a unitary way. The piece to be captured is first swapped out into the ancilla space. Then a [basic jump](#basic-jump) between source and target is applied.
 
 <p align="center">
-   <img src="/images/capture_jump_circuit.png">
+   <img src="./images/capture_jump_circuit.png">
 </p>
 
 The capture jump requires a measurement to determine the occupancy of the source. The above circuit is applied if the outcome is m<sub>1</sub>, meaning the source is occupied. Otherwise no unitary evolution occurs.
 
 <p align="center">
-   <img src="/images/measure_capture_jump_circuit.png">
+   <img src="./images/measure_capture_jump_circuit.png">
 </p>
 
 ## Basic Slide
 The basic slide is a zero-controlled [basic jump](#basic-jump), with the path qubit acting as the control, as described in [Slide](#slide)
 <p align="center">
-   <img src="/images/slide_circuit.png">
+   <img src="./images/slide_circuit.png">
 </p>
 
 ## Excluded Slide
 The excluded slide requires measuring to determine the occupancy of the target. The [basic slide](#basic-slide) circuit is applied if the outcome is m<sub>1</sub>, meaning the target is unoccupied. Otherwise no unitary evolution occurs.
 
 <p align="center">
-   <img src="/images/measure_excluded_slide_circuit.png">
+   <img src="./images/measure_excluded_slide_circuit.png">
 </p>
 
 ## Capture Slide
 The capture slide requires simultaneously measuring to determine the occupancy of both the source and the path. The [capture jump](#capture-jump) circuit is appliedif the outcome is m<sub>1</sub>, meaning the source square is occupied and the path is clear. Otherwise no unitary evolution occurs.
 
 <p align="center">
-   <img src="/images/measure_capture_slide_circuit.png">
+   <img src="./images/measure_capture_slide_circuit.png">
 </p>
 
 Note, if the measurement outcome is 0, both source and path may still exist in superposition.
@@ -184,28 +184,28 @@ Note, if the measurement outcome is 0, both source and path may still exist in s
 The basic split jump is accomplished with a circuit corresponding to the math described in [Split Jump](#split-jump)
 
 <p align="center">
-   <img src="/images/split_jump_circuit.png">
+   <img src="./images/split_jump_circuit.png">
 </p>
 
 ## Basic Split Slide
 The basic split slide is accomplished with a circuit corresponding to the math described in [Split Slide](#split-slide)
 
 <p align="center">
-   <img src="/images/split_slide_circuit.png">
+   <img src="./images/split_slide_circuit.png">
 </p>
 
 ## Basic Merge Jump
 The basic merge jump is accomplished with a circuit corresponding to the math described in [Merge Jump](#merge-jump)
 
 <p align="center">
-   <img src="/images/merge_jump_circuit.png">
+   <img src="./images/merge_jump_circuit.png">
 </p>
 
 ## Basic Merge Slide
 The basic merge slide is accomplished with a circuit corresponding to the math described in [Merge Slide](#merge-slide)
 
 <p align="center">
-   <img src="/images/merge_slide_circuit.png">
+   <img src="./images/merge_slide_circuit.png">
 </p>
 
 ## Basic Pawn Step
@@ -224,85 +224,85 @@ The excluded pawn two step uses the same circuit as the [excluded slide](#exclud
 Pawn capture is similar to the capture jump, except the actual movement of the pawn location is dependent on whether there is is a piece being captured. This can be accomplished with a simple CNOT from target to source, after measurement of the source qubit. Add a phase rotation to maintain consistency with using iSwaps into a captured ancilla.
 
 <p align="center">
-   <img src="/images/pawn_capture_circuit_alt.png">
+   <img src="./images/pawn_capture_circuit_alt.png">
 </p>
 The capture variant requires a measurement projecting the source into the "occupied" subspace.
 
 <p align="center">
-   <img src="/images/measure_pawn_capture_circuit.png">
+   <img src="./images/measure_pawn_capture_circuit.png">
 </p>
 
 ## Basic En Passant
 Basic en passant is where the target is either unoccupied, or occupied by a pawn that is the same color as the pawn being moved. Name the square of the pawn being captured 'ep'. The following circuit can be used to complete the basic en passant procedure.
 
 <p align="center">
-   <img src="/images/ep_circuit.png">
+   <img src="./images/ep_circuit.png">
 </p>
 
 ## Excluded En Passant
 Excluded en passant is when the target is occupied, in superposition, by a non-capturable piece. It requires the target square to be project into the "unoccupied" subspace.
 
 <p align="center">
-   <img src="/images/measure_excluded_ep_circuit.png">
+   <img src="./images/measure_excluded_ep_circuit.png">
 </p>
 
 We know the target is not occupied, so the following circuit can be used to complete the en passant procedure.
 <p align="center">
-   <img src="/images/excluded_ep_circuit.png">
+   <img src="./images/excluded_ep_circuit.png">
 </p>
 
 ## Capture En Passant
 Capture en passant is when the target is occupied, in superposition, by a capturable piece. It requires a measurement projecting the source into the "occupied" subspace.
 
 <p align="center">
-   <img src="/images/measure_capture_ep_circuit.png">
+   <img src="./images/measure_capture_ep_circuit.png">
 </p>
 
 In this case, the pawn is either capturing the piece occupying the target, or capturing the pawn via en passant. We know the source is occupied, so the following circuit can be used to complete the capture en passant procedure.
 
 <p align="center">
-   <img src="/images/capture_ep_circuit.png">
+   <img src="./images/capture_ep_circuit.png">
 </p>
 
 ## Basic Kingside Castle
 The squares involved in the kingside castle are labeled by their file. It is accomplished by an iswap to move the king, and an iswap to move the rook.
 
 <p align="center">
-   <img src="/images/ks_castle_circuit.png">
+   <img src="./images/ks_castle_circuit.png">
 </p>
 
 ## Excluded Kingside Castle
 The excluded variant of the kingside castle requires measuring to project the f-file and g-file squares into the simultaneously unoccupied subspace.
 
 <p align="center">
-   <img src="/images/measure_excluded_ks_castle_circuit.png">
+   <img src="./images/measure_excluded_ks_castle_circuit.png">
 </p>
 
 ## Basic Queenside Castle
 The squares involved in the queenside castle are labeled by their file. It is accomplished by an zero-controlled-iswap to move the king, and an zero-controlled-iswap to move the rook, with the b-file square acting as the control qubit.
 
 <p align="center">
-   <img src="/images/qs_castle_circuit.png">
+   <img src="./images/qs_castle_circuit.png">
 </p>
 
 ## Excluded Queenside Castle
 The excluded variant of the queenside castle requires measuring to project the c-file and d-file squares into the simultaneously unoccupied subspace.
 
 <p align="center">
-   <img src="/images/measure_excluded_qs_castle_circuit.png">
+   <img src="./images/measure_excluded_qs_castle_circuit.png">
 </p>
 
 # Bell Correlations
 The Bell states, shown here, can be used to extract some correlation information from the quantum state
 
 <p align="center">
-   <img src="/images/bell_states.png">
+   <img src="./images/bell_states.png">
 </p>
 
 The expectation values of the following operators, for given pairs of squares (qubits) in the quantum state, can be used to gain some sense of entanglement and relative phase.
 
 <p align="center">
-   <img src="/images/bell_operators.png">
+   <img src="./images/bell_operators.png">
 </p>
 
 ## Entanglement
@@ -311,7 +311,7 @@ The Bell states can be separated by their "orientation" of entanglement. The Ψ 
 Values for "same" and "opposite" correlation can be calculated by vectorizing the expectation values for the associated Bell operators. The magnitude of each subset of values will tell you whether the state has some preference for sameness or oppositeness. This measure includes both entanglement and classical correlation. The values can be normalized to give some ratio of sameness vs. oppositeness compared to the whole.
 
 <p align="center">
-   <img src="/images/entanglement.png">
+   <img src="./images/entanglement.png">
 </p>
 
 ## Phase
