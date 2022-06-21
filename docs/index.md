@@ -1,1 +1,1 @@
-This is an overview of the Quantum Chess documentation.
+This is an early draft of public Quantum Chess Engine documentation. This is the engine that backs the [game found on Steam](https://store.steampowered.com/app/453870/Quantum_Chess/). Please leave feedback in our [Discord server](https://discord.gg/dCBeKAU7m2), and help us improve this.
