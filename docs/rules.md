@@ -2,10 +2,10 @@
 Quantum Chess is a variant of chess that gives players some new movement options, allowing them to create quantum superposition, where the pieces can exist on more than one square at the same time. This page, and associated resources, documents the official rules and implementation details for the game.
 
 # Quantum Pieces
-Pieces can exist in a superposition of both occupying and not occupying a given square. This superposition of occupancy is encoded in the [quantum state](/math#quantum-state) of the board.
+Pieces can exist in a superposition of both occupying and not occupying a given square. This superposition of occupancy is encoded in the [quantum state](./math#quantum-state) of the board.
 
 # Movement
-Quantum Chess moves are described by “source” squares and “target” squares. All movement is accomplished through [unitary evolution](/math#movement-unitaries) of the [quantum state](/math#quantum-state).
+Quantum Chess moves are described by “source” squares and “target” squares. All movement is accomplished through [unitary evolution](./math#movement-unitaries) of the [quantum state](./math#quantum-state).
 
 For sliding moves, squares that are in superposition in the path are considered as empty when determining whether the move is legal.
 
@@ -61,7 +61,7 @@ This section lists all of the legal move types and variants in Quantum Chess. It
 ## Basic Jump
 Pieces: Knight, King (non-castling)
 
-[Circuit](/math#basic-jump)
+[Circuit](./math#basic-jump)
 
 Conditions:
 * The target square is unoccupied, or occupied by the same kind of piece as the source.
@@ -69,7 +69,7 @@ Conditions:
 ## Excluded Jump
 Pieces: Knight, King (non-castling)
 
-[Circuit](/math#excluded-jump)
+[Circuit](./math#excluded-jump)
 
 Conditions:
 * The target square is occupied, in superposition, by a piece that is the same color, but different type, than the source.
@@ -77,7 +77,7 @@ Conditions:
 ## Capture Jump
 Pieces: Knight, King (non-castling)
 
-[Circuit](/math#capture-jump)
+[Circuit](./math#capture-jump)
 
 Conditions:
 * The target square is occupied by an opponent's piece.
@@ -85,7 +85,7 @@ Conditions:
 ## Basic Slide
 Pieces: Bishop, Rook, Queen
 
-[Circuit](/math#basic-slide)
+[Circuit](./math#basic-slide)
 
 Conditions:
 * The target square is unoccupied, or occupied by the same kind of piece as the source.
@@ -93,7 +93,7 @@ Conditions:
 ## Excluded Slide
 Pieces: Bishop, Rook, Queen
 
-[Circuit](/math#excluded-slide)
+[Circuit](./math#excluded-slide)
 
 Conditions:
 * The target square is occupied, in superposition, by a piece that is the same color, but different type, than the source.
@@ -101,7 +101,7 @@ Conditions:
 ## Capture Slide
 Pieces: Bishop, Rook, Queen
 
-[Circuit](/math#capture-slide)
+[Circuit](./math#capture-slide)
 
 Conditions:
 * The target square is occupied by an opponent's piece.
@@ -109,7 +109,7 @@ Conditions:
 ## Basic Pawn Step
 Pieces: Pawn
 
-[Circuit](/math#basic-pawn-step)
+[Circuit](./math#basic-pawn-step)
 
 Conditions:
 * The target square is one square in the "forward" direction.
@@ -118,7 +118,7 @@ Conditions:
 ## Excluded Pawn Step
 Pieces: Pawn
 
-[Circuit](/math#excluded-pawn-step)
+[Circuit](./math#excluded-pawn-step)
 
 Conditions:
 * The target square is one square in the "forward" direction.
@@ -127,7 +127,7 @@ Conditions:
 ## Basic Pawn Two Step
 Pieces: Pawn
 
-[Circuit](/math#basic-pawn-two-step)
+[Circuit](./math#basic-pawn-two-step)
 
 Conditions:
 * The source square is the moving pawn's starting position.
@@ -137,7 +137,7 @@ Conditions:
 ## Excluded Pawn Two Step
 Pieces: Pawn
 
-[Circuit](/math#excluded-pawn-two-step)
+[Circuit](./math#excluded-pawn-two-step)
 
 Conditions:
 * The source square is the moving pawn's starting position.
@@ -147,7 +147,7 @@ Conditions:
 ## Pawn Capture
 Pieces: Pawn
 
-[Circuit](/math#pawn-capture)
+[Circuit](./math#pawn-capture)
 
 Conditions:
 * The target square is one square in the "forward-right" or "forward-left" direction.
@@ -156,7 +156,7 @@ Conditions:
 ## Basic En Passant
 Pieces: Pawn
 
-[Circuit](/math#basic-en-passant)
+[Circuit](./math#basic-en-passant)
 
 Conditions:
 * The source square is adjacent to an opponent's pawn that moved forward two steps during the opponent's previous turn.
@@ -166,7 +166,7 @@ Conditions:
 ## Excluded En Passant
 Pieces: Pawn
 
-[Circuit](/math#excluded-en-passant)
+[Circuit](./math#excluded-en-passant)
 
 Conditions:
 * The source square is adjacent to an opponent's pawn that moved forward two steps during the opponent's previous turn.
@@ -176,7 +176,7 @@ Conditions:
 ## Capture En Passant
 Pieces: Pawn
 
-[Circuit](/math#capture-en-passant)
+[Circuit](./math#capture-en-passant)
 
 Conditions:
 * The source square is adjacent to an opponent's pawn that moved forward two steps during the opponent's previous turn.
@@ -186,7 +186,7 @@ Conditions:
 ## Basic Kingside Castle
 Pieces: King
 
-[Circuit](/math#basic-kingside-castle)
+[Circuit](./math#basic-kingside-castle)
 
 Conditions:
 * The source square is the king's starting square.
@@ -198,7 +198,7 @@ Conditions:
 ## Excluded Kingside Castle
 Pieces: King
 
-[Circuit](/math#excluded-kingside-castle)
+[Circuit](./math#excluded-kingside-castle)
 
 Conditions:
 * The source square is the king's starting square.
@@ -209,7 +209,7 @@ Conditions:
 ## Basic Queenside Castle
 Pieces: King
 
-[Circuit](/math#basic-queenside-castle)
+[Circuit](./math#basic-queenside-castle)
 
 Conditions:
 * The source square is the king's starting square.
@@ -221,7 +221,7 @@ Conditions:
 ## Excluded Queenside Castle
 Pieces: King
 
-[Circuit](/math#excluded-queenside-castle)
+[Circuit](./math#excluded-queenside-castle)
 
 Conditions:
 * The source square is the king's starting square.
@@ -234,14 +234,14 @@ Measurement is when the game engine answers certain questions about the quantum 
 
 The outcome of a measurement determines whether the move will continue. **A measurement outcome that doesn't allow a move to continue still counts as the player's turn**, because the state of the game is changed by the measurement.
 
-The [excluded](#excluded-variant) and [capture](#capture-variant) variants of each type of move require measurements. The measurements are designed to allow the engine to unambiguously assign a piece to the target square(s) after the move procedure is complete. The details of the various measurements can be seen in the [move circuits](/math#move-circuits).
+The [excluded](#excluded-variant) and [capture](#capture-variant) variants of each type of move require measurements. The measurements are designed to allow the engine to unambiguously assign a piece to the target square(s) after the move procedure is complete. The details of the various measurements can be seen in the [move circuits](./math#move-circuits).
 
 # Capture the King
 In Quantum Chess you win by capturing the opponent’s king. This means 100% captured. If both players still have a king with any non-zero probability, the game continues. There is no concept of check. This means that any standard chess movement restrictions, that rely on check or checkmate, do not apply.
 
 # Gameplay
 1. The player designates the type of move they wish to perform.
-2. The engine applies the appropriate [quantum circuit](/math#move-circuits) to the quantum state, and updates the classical information, to be consistent with any collapse and changes in square occupancy.
+2. The engine applies the appropriate [quantum circuit](./math#move-circuits) to the quantum state, and updates the classical information, to be consistent with any collapse and changes in square occupancy.
 3. If any [gameover conditions](#gameover-conditions) are met, the game ends. Otherwise the player's turn ends, and the ply is incremented.
 
 ## Gameover Conditions
