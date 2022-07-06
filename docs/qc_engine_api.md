@@ -16,3 +16,4 @@ This document defines a c-style API for interacting with the Quantum Chess Engin
 * [qchess_get_pairwise_bell_measures](./api/get_pairwise_bell_measures.md) : Get the [Bell correlation values](./math.md#bell-correlations) between two squares for the current state of a game.
 * [qchess_get_simulator_state_size](./api/get_simulator_state_size.md) : Get simulated number of states in the game's superposition.
 * [qchess_get_simulator_board_probabilities](./api/get_simulator_board_probabilities.md) : (Simulator only) Get the exact probability of each bitboard.
+* [qchess_get_square_entanglement](./api/get_square_entanglement.md) : Get the pairwise entanglement of a specified square with other squares.
