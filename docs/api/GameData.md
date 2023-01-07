@@ -30,7 +30,7 @@ Square indices are mapped as follows.
 [Ply](https://en.wikipedia.org/wiki/Ply_(game_theory)) count for the game.
 
 ### ```fifty_count```
-Number of ply since the last attempted capture or pawn move.
+Number of ply since the last 50 move counter reset.
 
 ### ```castle_flags```
 Bit flags indicating castling legality. In little endian notation:
