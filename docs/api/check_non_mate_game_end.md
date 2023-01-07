@@ -1,5 +1,5 @@
 # qchess_check_non_mate_game_end
-Check what happens if the 50-move rule is claimed.
+Check what happens if the 50-move rule or threefold repetition is claimed.
 
 According to the rules of quantum chess, if a successful claim is made, then all squares on the board are
 measured, and a final result is determined from the resulting classical position. This API assists in the
