@@ -1,11 +1,1 @@
-[Rules](./rules.md)
-
-[Math](./math.md)
-
-[Quantum Chess Algebraic Notation](./qc_algebraic_notation.md)
-
-<!-- MathJax https://www.mathjax.org/#gettingstarted-->
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-<div class="mathjax">$$p = \left( \frac{8}{9} \right)^4 \approx 62.43\%$$</div>
+This is an early draft of public Quantum Chess Engine documentation. This is the engine that backs the [game found on Steam](https://store.steampowered.com/app/453870/Quantum_Chess/). Please leave feedback in our [Discord server](https://discord.gg/dCBeKAU7m2), and help us improve this.

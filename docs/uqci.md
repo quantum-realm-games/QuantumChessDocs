@@ -36,7 +36,7 @@ The Universal Quantum Chess Interface (UQCI) protocol attempts to emulate and ex
   not calculating, it should also just ignore it.
 
 # Move Format
-The move format is in [Quantum Chess long algebraic notation](https://github.com/quantum-realm-games/QuantumChessEngine/blob/master/docs/qc_algebraic_notation.md).
+The move format is in [Quantum Chess long algebraic notation](https://github.com/quantum-realm-games/QuantumChessEngine/blob/master/docs/qc_algebraic_notation).
 A nullmove from the Engine to the GUI should be send as 0000.
 Examples:  e2e4, b1^a3c3, a3c3^b5, b1wc3.m0, e1g1 (white short castling), e7e8q (for promotion)
 

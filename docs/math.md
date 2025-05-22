@@ -6,18 +6,32 @@ The state of the game is divided into two parts, the quantum state and classical
 
 ## Quantum State
 The quantum state is described using 64 qubits that encode the "occupancy" of each square.
-<p align="center">
-   <img src="./images/quantum_state.png" >
-</p>
+
+$$\ket{\psi} = \bigotimes_{s,j} \ket{s_j} \; , \; s\in \{a-h\}, j\in \{1-8\}$$
 
 ## Classical Information
 A classical register is mapped on top of the quantum "occupancy" state, to denote what kind of piece may be in a square.
 
 # Movement Unitaries
 All movement is accomplished by applying a specific unitary to the quantum state, and then updating the classical information to reflect the new possible piece locations. The movement unitaries in Quantum Chess are built around the iswap and square root of the iswap.
-<p align="center">
-   <img src="./images/iswap.png" width="240" height="120"> <img src="./images/root_iswap.png" width="240" height="120">
-</p>
+
+$$
+U_{iswap} =
+\begin{pmatrix}
+    1 & 0 & 0 & 0 \\
+    0 & 0 & i & 0 \\
+    0 & i & 0 & 0 \\
+    0 & 0 & 0 & 1
+\end{pmatrix}
+\;\;\;
+U_{\sqrt{iswap}} =
+\begin{pmatrix}
+    1 & 0 & 0 & 0 \\
+    0 & \frac{1}{\sqrt{2}} & \frac{i}{\sqrt{2}} & 0 \\
+    0 & \frac{i}{\sqrt{2}} & \frac{1}{\sqrt{2}} & 0 \\
+    0 & 0 & 0 & 1
+\end{pmatrix}
+$$
 
 The exact matrix form of each movement unitary will depend on the qubit ordering on which it acts. Movement unitaries are defined as acting on sources, targets, and path qubits:
 * **source** refers to a square you're moving from
@@ -33,9 +47,8 @@ All move procedures in the game use one or more of the following movement unitar
 The jump is simply the iswap unitary applied to two qubits.
 * s : source
 * t : target
-<p align="center">
-   <img src="./images/jump.png">
-</p>
+
+$$ U_{jump} \ket{s,t} = U_{iswap} \ket{s,t} $$
 
 ## Slide
 The slide acts on three qubits.
@@ -44,9 +57,8 @@ The slide acts on three qubits.
 * p : path between source and target
 
 It is a zero-controlled jump between s and t, with p acting as control.
-<p align="center">
-   <img src="./images/slide.png">
-</p>
+
+$$ U_{slide}\ket{p,s,t} = (U_{iswap}\oplus I_4)\ket{p,s,t} $$
 
 ## Split Jump
 The split jump acts on three qubits.
@@ -55,9 +67,8 @@ The split jump acts on three qubits.
 * t<sub>2</sub> : second target
 
 It applies the [square root of iswap](#movement-unitaries) between s and t<sub>1</sub>, followed by an [iswap](#movement-unitaries) between s and t<sub>2</sub>.
-<p align="center">
-   <img src="./images/split_jump.png">
-</p>
+
+$$ U_{sj}\ket{t_2,s,t_1} = (U_{iswap}\otimes I_2)(I_2\otimes U_{\sqrt{iswap}})\ket{t_2,s,t_1} $$
 
 ## Split Slide
 The split slide acts on five qubits.
@@ -68,9 +79,8 @@ The split slide acts on five qubits.
 * p<sub>2</sub> : path from s to t<sub>2</sub>
 
 It is a sequence of controlled unitaries. If both p<sub>1</sub> and p<sub>2</sub> are clear, it performs the [split jump](#split-jump) between s, t<sub>1</sub> and t<sub>2</sub>. If p<sub>1(2)</sub> is blocked, it performs a [jump](#jump) between s and t<sub>2(1)</sub>. If both paths are blocked, it does nothing.
-<p align="center">
-   <img src="./images/split_slide.png">
-</p>
+
+$$ U_{ss}\ket{p_2,p_1,t_2,s,t_1}=U_{sj}\oplus(I_2\otimes U_j)\oplus(U_j\otimes I_2)\oplus I_8 \ket{p_2,p_1,t_2,s,t_1} $$
 
 ## Merge Jump
 The merge jump acts on three qubits.
@@ -79,9 +89,8 @@ The merge jump acts on three qubits.
 * t : target
 
 It is the inverse of a [split jump](#split-jump), and here the qubits are ordered to reflect the inversion.
-<p align="center">
-   <img src="./images/merge_jump.png">
-</p>
+
+$$ U_{mj}\ket{s_1,t,s_2} = U_{sj}^\dagger\ket{s_1,t,s_2} $$
 
 ## Merge Slide
 The merge jump acts on five qubits.
@@ -92,9 +101,10 @@ The merge jump acts on five qubits.
 * p<sub>2</sub> : path from s<sub>2</sub> to t
 
 It is the inverse of a [split jump](#split-jump), and here the qubits are ordered to reflect the inversion.
-<p align="center">
-   <img src="./images/merge_slide.png">
-</p>
+
+$$
+U_{ms}\ket{p_1,p_2,s_1,t,s_2} = U_{ss}^\dagger\ket{p_1,p_2,s_1,t,s_2}
+$$
 
 # Measurement
 Measurement is used to enforce the "No Double Occupancy" rule. Measurements are designed to allow the game engine to unambiguously determine what type of piece might be occupying any given square after a move.
@@ -105,7 +115,7 @@ All measurements in the game are two-outcome projective measurements, m<sub>0</s
 
 * m<sub>1</sub> : The state is projected into a subspace where the proposed move can be completed, and the piece information for the target square(s) can be updated to match the piece being moved (source piece).
 
-The excluded and capture [variants](./rules.md#move-variants) of each type of move require measurement. The specific form each measurement takes can be seen in [Move Circuits](#move-circuits)
+The excluded and capture [variants](/rules.md#move-variants) of each type of move require measurement. The specific form each measurement takes can be seen in [Move Circuits](#move-circuits)
 
 # Move Circuits
 The movement unitaries and measurement criteria can be combined into quantum computing circuits for each type and variant of move. These move circuits define the procedure followed for each kind of move.

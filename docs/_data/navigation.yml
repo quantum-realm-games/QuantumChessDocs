@@ -1,5 +1,9 @@
 docs:
+  - title: "Overview"
+    url: /
   - title: "Rules"
-    url: ./rules.md
+    url: /rules
   - title: "Math"
-    url: ./math.md
+    url: /math
+  - title: "Algebraic Notation"
+    url: /qc_algebraic_notation

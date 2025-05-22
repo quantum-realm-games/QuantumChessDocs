@@ -1,4 +1,28 @@
-remote_theme: just-the-docs/just-the-docs
-  
+#remote_theme: "mmistakes/minimal-mistakes@4.24.0"
+markdown: kramdown
+remote_theme: "mmistakes/minimal-mistakes@0f06cb82259e9e5f234a77173f2ea8936d8686b2" #TOC scrollbar
+minimal_mistakes_skin: "dirt"
+
 title: Quantum Chess Documentation
 description: Official documentation for the Quantum Chess engine.
+
+plugins:
+  - jekyll-include-cache
+  - jekyll-titles-from-headings
+
+titles_from_headings:
+  enabled: true
+  strip_title: true
+  collections: true
+  
+defaults:
+  - 
+    scope:
+      path: ""
+    values:
+      usemathjax: true
+      toc: true
+      toc_sticky: true
+      layout: single
+      sidebar:
+        nav: "docs"

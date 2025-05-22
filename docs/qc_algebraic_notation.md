@@ -1,9 +1,7 @@
 # Intro
 The Quantum Chess engine supports an extension of [algebraic notation](https://en.wikipedia.org/wiki/Algebraic_notation_(chess)) used in chess. The current implementation is slightly incomplete, as fully abbreviated move strings are not supported yet. However, it is not truly considered "long algebraic notation" because some abbreviation is supported. Squares on the quantum chess board follow the same naming convention as standard chess.
 
-<p align="center">
-   <img src="./images/square_names.jpg" width="300" height="300">
-</p>
+![Board](/images/square_names.jpg){: .align-center}
 
 # Standard Move
 Standard moves are considered to be any legal movement pattern in standard chess. This includes castling and en passant. All standard moves are given by denoting a single source square and a single target square.
@@ -22,7 +20,7 @@ A merge move requires the naming of two "source" squares and a single "target" s
 * `a3c3^b5` denotes a merge move from a3 and c3 to b5.
 
 # Move Variants
-The Quantum Chess algebraic notation defines the following notation for the three variants described in [Rules](./rules.md#move-variants).
+The Quantum Chess algebraic notation defines the following notation for the three variants described in [Rules](/rules#move-variants).
 ## Basic
 A basic variant is denoted with just the raw move string, no extra characters.
 * `a2a4` denotes a basic variant of the move from a2 to a4.
