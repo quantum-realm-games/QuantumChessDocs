@@ -6,7 +6,7 @@ Fill a buffer with data for the [Bell correlations](../math.md#bell-correlations
 
 ## Syntax
 ```cpp
-int qchess_get_pairwise_bell_measures(Game* game, int square1, int square2, GameData* out_buffer, int buffer_size);
+int qchess_get_pairwise_bell_measures(qchess_Game* game, int square1, int square2, qchess_GameData* out_buffer, int buffer_size);
 ```
 ## Parameters
 ### ```game```
@@ -27,7 +27,7 @@ Returns 0 if successful, otherwise some yet to be defined status code.
 ## Examples
 ```cpp
 auto game = qchess_new_game("position startpos", false, false, "");
-GameData data;
+qchess_GameData data;
 int out_value;
 auto success = qchess_do_move(game, "b1^a3c3", &data, &out_value);
 if(success==0){

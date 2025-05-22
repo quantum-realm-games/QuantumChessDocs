@@ -1,8 +1,8 @@
 # qchess_do_move
-Attempt to execute a move on a game created by the [qchess_new_game](./qchess_new_game.md) function.
+Attempt to execute a move on a game created by the [qchess_new_game](./new_game.md) function.
 ## Syntax
 ```cpp
-int qchess_do_move(Game* game, const char* move, GameData* out_buffer, int* move_code);
+int qchess_do_move(qchess_Game* game, const char* move, qchess_GameData* out_buffer, int* move_code);
 ```
 ## Parameters
 ### ```game```
@@ -11,8 +11,8 @@ Pointer to game on which to perform the move
 ### ```move```
 String defining the move in [Quantum Chess algebraic notation](../qc_algebraic_notation.md)
 
-### ```out_buffer```
-Output [GameData](./GameData.md) buffer that will be filled with the post move GameData state information.
+### ```out_buffer``` (optional)
+Output [qchess_GameData](./GameData.md) buffer that will be filled with the post move state information.
 
 ### ```move_code```
 Status code for the move, intended to give relevant information about the game after move execution. Possible values:
@@ -31,7 +31,7 @@ Returns 0 if move was successful (codes 1-5) , otherwise some yet to be defined 
 ## Examples
 ```cpp
 auto game = qchess_new_game("position startpos", false, false, "");
-GameData data;
+qchess_GameData data;
 int out_value;
 auto success = qchess_do_move(game, "b1^a3c3", &data, &out_value);
 ```

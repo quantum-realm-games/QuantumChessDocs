@@ -248,5 +248,6 @@ In Quantum Chess you win by capturing the opponent’s king. This means 100% cap
 * White Win: Black has no king, but white does
 * Black Win: White has no king, but black does
 * Draw: Neither player has a king
-* 50-Move Stalemate: Neither player has attempted a capture or pawn move in the last 50 moves.
-
+* 50-Move Rule: There is a 50-move rule counter which starts at 0 and increases by 1 every time either player makes a move. The counter resets to 0 each time the number of pieces, as determined by the sum of square probabilities over all squares on the board, becomes different by at least 1 from the number of pieces the last time the counter was reset.
+If the counter reaches 100, then every square on the board is measured and the game is decided as follows: if both kings remain on the board it is a draw; otherwise the result is determined by one of the conditions listed above.
+* Threefold Repetition: In certain limited circumstances, it may be possible to detect that an identical position has previously occurred. If the current position has occurred at least twice previously, then the game may end according to the threefold repetition rule. If so, the game's result is determined in the same way as with the 50-move rule.

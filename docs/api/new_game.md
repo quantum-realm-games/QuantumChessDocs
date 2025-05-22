@@ -2,10 +2,10 @@
 Returns a pointer to a new Quantum Chess game
 ## Syntax
 ```cpp
-Game* qchess_new_game(char* position, bool force_turn, bool force_win, char* rest_url);
+qchess_Game* qchess_new_game(char* position, bool force_turn, bool force_win, char* rest_url);
 ```
 ## Parameters
-### ```position```
+### ```position``` (optional)
 String defining the starting position of the new game. Position strings look like
 ```cpp
 "position startpos (optional)moves [move strings]"
@@ -23,7 +23,7 @@ Bool to enable/disable turn order checking
 ### ```force_win```
 Bool to enable/disable win condition checking
 
-### ```rest_url```
+### ```rest_url``` (optional)
 String for URL to offload quantum state to. If this parameter is empty, the engine uses its internal simulator.
 If the string is not empty, the engine assumes it is a valid URL, that implements the [Quantum Chess REST API](../qc_rest_api.md),
 and will offload the quantum state to this external resource. This feature requires special build flags to use.
